@@ -1,0 +1,71 @@
+mysql> create team14;
+mysql> use team14;
+
+mysql> create table customerInfo(party_key varchar(30) primary key,residential_country_cd varchar(10),party_open_date date);
+mysql> create table countriesInfo(LIST_ID varchar(30) not null, ENTITY_KEY varchar(10) primary key);
+mysql> create table customer_accInfo(Account_Key varchar(30) primary key, primary_party_key varchar(30), acct_open_date date);
+mysql> create table customersTransc(Transfer_Key varchar(15) primary key, Account_Key varchar(30) references customer_accInfo(Account_Key),Transc_Amt int,Transc_Type varchar(10), Transaction_Origin_Destination varchar(15), Transc_Date date);
+
+mysql> insert into countriesinfo values('AML-CTY-HR-01','AF');
+Query OK, 1 row affected (0.25 sec)
+
+mysql> insert into countriesinfo values('AML-CTY-HR-01','JI');
+Query OK, 1 row affected (0.29 sec)
+
+mysql> insert into countriesinfo values('AML-CTY-HR-01','PK');
+Query OK, 1 row affected (0.29 sec)
+
+mysql> insert into countriesinfo values('AML-CTY-HR-01','IS');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into countriesinfo values('AML-CTY-HR-01','TR');
+Query OK, 1 row affected (0.90 sec)
+
+mysql> insert into countriesinfo values('AML-CTY-HR-01','SR');
+Query OK, 1 row affected (0.19 sec)
+
+mysql> insert into customer_accinfo values('CASP_D04050165300009','C1245363788_00','2015-02-28');
+Query OK, 1 row affected (1.77 sec)
+
+mysql> insert into customer_accinfo values('CASP_D00630169780001','C014581971C_00','2015-02-28');
+Query OK, 1 row affected (0.16 sec)
+
+mysql> insert into customer_accinfo values('CASP_D00630169780002','C014831981K_00','2015-03-31');
+Query OK, 1 row affected (0.17 sec)
+
+mysql> insert into customer_accinfo values('CASP_D00630169780003','C015471980N_00','2015-02-28');
+Query OK, 1 row affected (0.17 sec)
+
+mysql> insert into customer_accinfo values('CASP_D00630169780004','C016051974E_00','2015-03-31');
+Query OK, 1 row affected (0.26 sec)
+
+mysql> insert into customerInfo values('S1659194G_00','MY','1980-01-01');
+Query OK, 1 row affected (0.40 sec)
+
+mysql> insert into customerInfo values('AS25CS0001L_00','SG','1997-03-01');
+Query OK, 1 row affected (0.21 sec)
+
+mysql> insert into customerInfo values('AS61SS0117F_00','SG','1997-03-01');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into customerInfo values('AS62SS0001F_00','SG','1997-03-01');
+Query OK, 1 row affected (0.15 sec)
+
+mysql> insert into customerInfo values('AS62SS0064B_00','SG','1986-03-01');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into customerstransc values('K1','CASP_D04050165300009',50,'INN','AF','2019-01-01');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into customerstransc values('K2','CASP_D04050165300009',100,'OUT','SR','2019-01-02');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into customerstransc values('K3','CASP_D00630169780002',23,'OUT','MM','2019-01-03');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into customerstransc values('K4','CASP_D00630169780002',24,'OUT','AF','2019-01-04');
+Query OK, 1 row affected (0.21 sec)
+
+mysql> insert into customerstransc values('K5','CASP_D00630169780003',70,'INN','PK','2019-01-05');
+Query OK, 1 row affected (0.18 sec)
+
